@@ -4,6 +4,10 @@ const express = require('express'),
 const ProductController = require('./controllers/ProductController');
 const NoticiasController = require('./controllers/NoticiasController');
 const ExpositoresController = require('./controllers/ExpositoresController');
+const PatrocinadoresController = require('./controllers/PatrocinadoresController');
+const User = require('./models/User');
+
+routes.post('/register', User.create);
 
 routes.get('/products', ProductController.index );
 routes.get('/products/:id', ProductController.show );
@@ -19,6 +23,11 @@ routes.delete('/noticias/:id', NoticiasController.destroy);
 routes.get('/expositores', ExpositoresController.index);
 routes.post('/expositores', ExpositoresController.store);
 routes.put('/expositores/:id', ExpositoresController.update);
-routes.delete('/expositores/:id', ExpositoresController.delete);
+routes.delete('/expositores/:id', ExpositoresController.destroy);
+
+routes.get('/patrocinadores', PatrocinadoresController.index);
+routes.post('/patrocinadores', PatrocinadoresController.store);
+routes.put('/patrocinadores', PatrocinadoresController.update);
+routes.delete('/patrocinadores', PatrocinadoresController.destroy);
 
 module.exports = routes;

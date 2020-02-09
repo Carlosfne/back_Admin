@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Expositores = mongoose.model('Expositores')
+const User = mongoose.model('User')
 
 module.exports = {
   async index( req, res ){
@@ -8,13 +8,13 @@ module.exports = {
 
     return res.json(expositores)
   },
-
-  async store( req, res ) {
-    const expositor = await Expositores.create(
+  
+  async create( req, res ) {
+    const user = await User.create(
       req.body
     );
 
-    return res.json(expositor)
+    return res.json(user)
   },
 
   async update( req, res ) {
@@ -23,7 +23,7 @@ module.exports = {
     return res.json(expositor)
   },
 
-  async destroy( req, res ) {
+  async delete( req, res ) {
     const expositor = await Expositores.findByIdAndRemove( req.params.id );
 
     return res.json()
