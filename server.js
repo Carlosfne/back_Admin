@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false}))
 app.use(morgan('dev'));
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/nodeapi', 
+mongoose.connect('mongodb+srv://carlos:1309@cluster0-4e3zv.mongodb.net/paineladmin?retryWrites=true&w=majority', 
   { useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
