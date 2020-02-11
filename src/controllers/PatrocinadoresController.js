@@ -16,10 +16,13 @@ module.exports = {
   },
 
   async store( req, res ) {
-    const patrocinadores = await Patrocinadores.create(
-      req.body
-    );
-    
+    const patrocinadores = await Patrocinadores.create({
+      name: req.file.originalname,
+      size: req.file.size,
+      key: req.file.key,
+      url: req.file.path,
+    });
+    console.log(req.file)
     return res.json(patrocinadores);
   },
 

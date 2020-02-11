@@ -1,5 +1,7 @@
 const express = require('express'),
-      routes = express.Router();
+      routes = express.Router(),
+      multer = require('multer'),
+      multerConfig = require('./config/multer');
 
 const ProductController = require('./controllers/ProductController');
 const NoticiasController = require('./controllers/NoticiasController');
@@ -8,6 +10,7 @@ const PatrocinadoresController = require('./controllers/PatrocinadoresController
 const User = require('./models/User');
 
 routes.post('/register', User.create);
+
 
 routes.get('/products', ProductController.index );
 routes.get('/products/:id', ProductController.show );
@@ -26,7 +29,7 @@ routes.put('/expositores/:id', ExpositoresController.update);
 routes.delete('/expositores/:id', ExpositoresController.destroy);
 
 routes.get('/patrocinadores', PatrocinadoresController.index);
-routes.post('/patrocinadores', PatrocinadoresController.store);
+routes.post('/patrocinadores', multer(multerConfig).single('image'), PatrocinadoresController.store);
 routes.put('/patrocinadores', PatrocinadoresController.update);
 routes.delete('/patrocinadores', PatrocinadoresController.destroy);
 
