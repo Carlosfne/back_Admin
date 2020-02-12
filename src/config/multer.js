@@ -1,6 +1,7 @@
 const multer = require('multer'),
       path = require('path'),
       crypto = require('crypto'),
+      aws = require('aws-sdk'),
       multerS3 = require('multer-s3');
 
 const storageTypes = {
