@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
-const ExpositoresSchema = new mongoose.Schema({
+
+const MapasSchema = new mongoose.Schema({
   description:{
     type:String,
     required:true
@@ -11,4 +12,4 @@ const ExpositoresSchema = new mongoose.Schema({
   }
 })
 
-mongoose.model('Expositores', ExpositoresSchema)
+mongoose.model('Mapas', MapasSchema)
